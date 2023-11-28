@@ -9,6 +9,8 @@ const routes: Routes = [
     children: [
       {path:"bloc",loadChildren:()=>
         import('./bloc/bloc.module').then(m=>m.BlocModule)},
+      {path:"univesite",loadChildren:()=>
+        import('./univesite/univesite.module').then(m=>m.UnivesiteModule)},
       {path:"reservation",loadChildren:()=>
         import('./reservation/reservation.module').then(m=>m.ReservationModule)},
       {path:"dashboard", component:HomeBackComponent}
