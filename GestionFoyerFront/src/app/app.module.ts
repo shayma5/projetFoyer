@@ -7,6 +7,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FrontOfficeModule } from './front-office/front-office.module';
 import { BackOfficeModule } from './back-office/back-office.module';
 import { UserModule } from './user/user.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,9 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     AppRoutingModule,
     FrontOfficeModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     BackOfficeModule,
     UserModule
   ],

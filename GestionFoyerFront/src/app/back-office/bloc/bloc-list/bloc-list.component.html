@@ -1,29 +1,38 @@
-<div class="px-4 pt-4 py-5" style="margin-top: 50px; margin-left: 30px; ">
-<div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
-  <table class="w-full">
-      <thead>
-          <tr class="bg-gray-100">
-              <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
-              <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
-              <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Phone</th>
-              <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Action</th>
-          </tr>
-      </thead>
-      <tbody class="bg-white">
-          <tr>
-              <td class="py-4 px-6 border-b border-gray-200">John Doe</td>
-              <td class="py-4 px-6 border-b border-gray-200 truncate">johndoe@gmail.com</td>
-              <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-              <td class="py-4 px-6 border-b border-gray-200">
-                  <button routerLink="/back/bloc/editbloc" class="bg-green-500 text-white py-1 px-2 rounded-full text-xs ">update</button>
-                  <button class="bg-red-500 text-white py-1 px-2 rounded-full text-xs ml-1">delete</button>
-
-              </td>
-          </tr>
-
-
-          <!-- Add more rows here -->
-      </tbody>
-  </table>
-</div>
-</div>
+<div class="flex justify-center items-center h-screen " >
+    <div class="shadow-lg rounded-lg  w-full max-w-xl" style="max-width: 70%; padding-bottom: 150px;" >
+    
+    
+      <a style=" cursor: pointer ;"  routerLink="/back/bloc/addbloc"  type="button" style="margin-left: 10px; margin-bottom: 20px ; margin-top: 20px; " class=" text-white  py-1.5 px-3 inline-flex start rounded-lg bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 dark:bg-gray-700">
+        Add Bloc
+      </a>
+    
+      <table class="w-full">
+    
+        <thead >
+            <tr class="bg-gray-100">
+                  <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
+                  <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Capacite</th>
+                  <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Foyer</th>
+                  <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Action</th>
+    
+              </tr>
+    
+          </thead>
+          <tbody class="bg-white"  *ngFor="let bloc of bloc">
+              <tr>
+                  <td class="py-4 px-6 border-b border-gray-200">{{ bloc.nomBloc }}</td>
+                   <td class="py-4 px-6 border-b border-gray-200">{{ bloc.capaciteBloc }}</td>
+                   <td class="py-4 px-6 border-b border-gray-200">{{ bloc.nomFoyer }}</td>
+                  <td class="py-4 px-6 border-b border-gray-200">
+                      <button routerLink="/back/bloc/editbloc" class="bg-green-500 text-white py-1 px-2 rounded-full text-xs ">update</button>
+                      <button (click)="delete(bloc.idBloc)" class="bg-red-500 text-white py-1 px-2 rounded-full text-xs ml-1">delete</button>
+    
+                  </td>
+              </tr>
+    
+    
+              <!-- Add more rows here -->
+          </tbody>
+      </table>
+    </div>
+    </div>
