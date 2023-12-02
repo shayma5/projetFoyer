@@ -24,7 +24,7 @@
                    <td class="py-4 px-6 border-b border-gray-200">{{ bloc.capaciteBloc }}</td>
                    <td class="py-4 px-6 border-b border-gray-200">{{ bloc.nomFoyer }}</td>
                   <td class="py-4 px-6 border-b border-gray-200">
-                      <button routerLink="/back/bloc/editbloc" class="bg-green-500 text-white py-1 px-2 rounded-full text-xs ">update</button>
+                      <button [routerLink]="['/back/bloc/editbloc',bloc.idBloc]" class="bg-green-500 text-white py-1 px-2 rounded-full text-xs ">update</button>
                       <button (click)="delete(bloc.idBloc)" class="bg-red-500 text-white py-1 px-2 rounded-full text-xs ml-1">delete</button>
     
                   </td>
