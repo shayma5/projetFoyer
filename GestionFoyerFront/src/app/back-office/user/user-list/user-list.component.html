@@ -1,0 +1,134 @@
+<div class="px-4 pt-4 py-5" style="margin-top: 50px; margin-left: 30px; ">
+    <h1 class="w-1/4 py-4 px-2 text-left text-gray-600 font-bold uppercase" style="font-size: 25px;">Table of Admins
+    </h1>
+    <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
+        <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+            <table class="w-full">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">ID</th>
+                        <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
+                        <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">LastName</th>
+                        <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
+                        <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Password</th>
+                        <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody class="bg-white">
+                    <tr *ngFor="let admin of admins">
+                        <td class="py-2 px-6 border-b border-gray-200">{{ admin.id }}</td>
+                        <td class="py-2 px-6 border-b border-gray-200">{{ admin.nom }}</td>
+                        <td class="py-2 px-6 border-b border-gray-200">{{ admin.prenom }}</td>
+                        <td class="py-2 px-6 border-b border-gray-200 truncate">{{ admin.email }}</td>
+                        <td class="py-2 px-6 border-b border-gray-200">{{ admin.password }}</td>
+                        <td class="py-2 px-6 border-b border-gray-200">
+                            <button class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">update</button>
+                            <button (click)="onDeleteUser(admin.id)"
+                                class="bg-red-500 text-white py-1 px-2 rounded-full text-xs ml-1">delete</button>
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="showAddColumnButton && !isRowDisabled">
+                        <td class="py-2 px-6 border-b border-gray-200">****</td>
+                        <td class="py-2 px-6 border-b border-gray-200">
+                            <input
+                                class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-2 block w-40 appearance-none"
+                                type="text" formControlName="name" />
+                            <div *ngIf="adminForm.get('name')!.hasError('required') && adminForm.get('name')!.touched"
+                                class="text-red-500">
+                                Name is required.
+                            </div>
+                        </td>
+                        <td class="py-2 px-6 border-b border-gray-200">
+                            <input
+                                class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-2 block w-40 appearance-none"
+                                type="text" formControlName="lastName" />
+                            <div *ngIf="adminForm.get('lastName')!.hasError('required') && adminForm.get('lastName')!.touched"
+                                class="text-red-500">
+                                Last Name is required.
+                            </div>
+                        </td>
+
+                        <td class="py-2 px-6 border-b border-gray-200 truncate">
+                            <input
+                                class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-2 block w-40 appearance-none"
+                                type="email" formControlName="email" />
+                            <div *ngIf="adminForm.get('email')!.hasError('email') && adminForm.get('email')!.touched"
+                                class="text-red-500">
+                                Invalid email address.
+                            </div>
+                            <div *ngIf="adminForm.get('email')!.hasError('required') && adminForm.get('email')!.touched"
+                                class="text-red-500">
+                                Email is required.
+                            </div>
+                        </td>
+                        <td class="py-2 px-6 border-b border-gray-200">
+                            <input
+                                class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                                type="password" formControlName="password" />
+                            <div *ngIf="adminForm.get('password')!.hasError('required') && adminForm.get('password')!.touched"
+                                class="text-red-500">
+                                Password is required.
+                            </div>
+                            <div *ngIf="adminForm.get('password')!.hasError('minlength') && adminForm.get('password')!.touched"
+                                class="text-red-500">
+                                Password must be at least 6 characters.
+                            </div>
+                        </td>
+                        <td class="py-2 px-6 border-b border-gray-200">
+                            <button type="button" (click)="onSubmit()"
+                                class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Create
+                                Admin</button>
+                            <button (click)="disableRow()"
+                                class="bg-red-500 text-white py-1 px-2 rounded-full text-xs ml-1">X</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+
+
+
+    <br><br><br>
+
+
+    <h1 class="w-1/4 py-4 px-2 text-left text-gray-600 font-bold uppercase" style="font-size: 25px;">Table of Students
+    </h1>
+    <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
+        <table class="w-full">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">ID</th>
+                    <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
+                    <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">LastName</th>
+                    <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">CIN</th>
+                    <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">University</th>
+                    <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
+                    <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Password</th>
+                    <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Date of birth</th>
+                    <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Action</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let student of students" class="bg-white">
+                <tr>
+                    <td class="py-2 px-6 border-b border-gray-200">{{ student.id }}</td>
+                    <td class="py-2 px-6 border-b border-gray-200">{{ student.nom }}</td>
+                    <td class="py-2 px-6 border-b border-gray-200">{{ student.prenom }}</td>
+                    <td class="py-2 px-6 border-b border-gray-200">{{ student.cin }}</td>
+                    <td class="py-2 px-6 border-b border-gray-200">{{ student.ecole }}</td>
+                    <td class="py-2 px-6 border-b border-gray-200 truncate">{{ student.email }}</td>
+                    <td class="py-2 px-6 border-b border-gray-200">{{ student.password.slice(0, -40) }}...</td>
+                    <td class="py-2 px-6 border-b border-gray-200">{{ student.dateNaissance | date: 'yyyy-MM-dd' }}</td>
+                    <td class="py-2 px-6 border-b border-gray-200">
+                        <button class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">update</button>
+                        <button (click)="onDeleteUser(student.id)"
+                            class="bg-red-500 text-white py-1 px-2 rounded-full text-xs ml-1">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

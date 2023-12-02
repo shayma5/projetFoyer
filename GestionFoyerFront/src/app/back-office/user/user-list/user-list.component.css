@@ -1,0 +1,13 @@
+/* Add this to your styles.css or styles.scss */
+.delete-button {
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #d9534f;
+    /* Change this to the color you prefer on hover */
+}
