@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserListServiceService } from './user-list-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -28,6 +28,8 @@ export class UserListComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+
+  
   ngOnInit(): void {
     this.fetchStudents();
     this.fetchAdmins();
@@ -48,6 +50,8 @@ export class UserListComponent implements OnInit {
     console.log('Admin Form:', this.adminForm);
   }
 
+
+
   onDeleteUser(userId: number): void {
     this.userListService.deleteUser(userId).subscribe(
       () => {
@@ -55,7 +59,7 @@ export class UserListComponent implements OnInit {
         console.log(`User with ID ${userId} deleted successfully.`);
 
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate([this.route.snapshot.url]);
+          this.router.navigate(['/back/user/list']);
         });
       },
       (error) => {
@@ -64,9 +68,14 @@ export class UserListComponent implements OnInit {
     );
   }
 
+
+
   onSubmit() {
+    console.log('Submitting form...');
+    
     if (this.adminForm.valid) {
       const newUser = { ...this.adminForm.value, role: 'ADMIN' };
+
       console.log('User object before sending:', newUser);
 
       this.http.post('http://localhost:9090/auth/registerAdmin', newUser)
@@ -80,15 +89,9 @@ export class UserListComponent implements OnInit {
           },
           (error) => {
             console.error('Error creating user:', error);
-
             if (error instanceof HttpErrorResponse) {
-              if (error.status === 500) {
-                console.log('Internal Server Error. Please check server logs.');
-              } else {
-                console.log(`Error: ${error.error}`);
-              }
-            } else {
-              console.log('An unexpected error occurred.');
+              console.error(`Status: ${error.status}, ${error.statusText}`);
+              console.error('Response body:', error.error);
             }
           }
         );

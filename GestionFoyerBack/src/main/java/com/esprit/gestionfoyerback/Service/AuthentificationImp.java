@@ -50,6 +50,7 @@ public class AuthentificationImp implements AuthentificationService{
 
         authenticationResponse.setAccessToken(jwt);
         authenticationResponse.setRefreshToken(refreshToken);
+        authenticationResponse.setRole(user.getRole().toString());
         return authenticationResponse;
     }
 

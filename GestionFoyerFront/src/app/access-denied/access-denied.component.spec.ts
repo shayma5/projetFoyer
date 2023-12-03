@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddAdminComponent } from './add-admin.component';
+import { AccessDeniedComponent } from './access-denied.component';
 
-describe('AddAdminComponent', () => {
-  let component: AddAdminComponent;
-  let fixture: ComponentFixture<AddAdminComponent>;
+describe('AccessDeniedComponent', () => {
+  let component: AccessDeniedComponent;
+  let fixture: ComponentFixture<AccessDeniedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddAdminComponent ]
+      declarations: [ AccessDeniedComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddAdminComponent);
+    fixture = TestBed.createComponent(AccessDeniedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
