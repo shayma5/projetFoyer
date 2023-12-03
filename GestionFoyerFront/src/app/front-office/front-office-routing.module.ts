@@ -13,7 +13,8 @@ const frontroot: Routes = [
       {path:"universities",loadChildren:()=>
       import('./university/university.module').then(m=>m.UniversityModule)},
       {path:"home", component:SlideComponent},
-      {path:"reservation", component:ReservationComponent}
+      {path:"reservations",loadChildren:()=>
+      import('./reservations/reservations.module').then(m=>m.ReservationsModule)}
 ]}];
 
 @NgModule({
