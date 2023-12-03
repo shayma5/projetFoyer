@@ -8,12 +8,12 @@ import { AddReservationComponent } from './add-reservation/add-reservation.compo
 
 @NgModule({
   declarations: [
-  
+    ReservationsListComponent,
     AddReservationComponent
   ],
   imports: [
     CommonModule,
-    ReservationsRoutingModule
+    ReservationsRoutingModule,
   ]
 })
 export class ReservationsModule { }

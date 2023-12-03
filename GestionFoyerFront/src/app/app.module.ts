@@ -7,6 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FrontOfficeModule } from './front-office/front-office.module';
 import { BackOfficeModule } from './back-office/back-office.module';
 import { UserModule } from './user/user.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserModule } from './user/user.module';
     AppRoutingModule,
     FrontOfficeModule,
     BackOfficeModule,
-    UserModule
+    UserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
