@@ -11,7 +11,7 @@ import com.esprit.gestionfoyerback.Service.AuthentificationService;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthenticationController {
     private final AuthentificationService authenticationServices;
 
@@ -27,6 +27,7 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public AuthenticationResponse login(@RequestBody User user) {
+        System.out.println("1");
         return authenticationServices.login(user.getEmail(), user.getPassword());
     }
 

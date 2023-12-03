@@ -22,8 +22,15 @@ export class SidebarComponent {
   }
 
   private getUserInfo() {
-    const storedUser = localStorage.getItem('user');
-    this.user = storedUser ? JSON.parse(storedUser) : null;
-    console.log('Retrieved User:', this.user);
+    this.authService.getUserDetails().subscribe(
+      (user) => {
+        this.user = user;
+        console.log('Retrieved User:', this.user);
+      },
+      (error) => {
+        console.error('Error retrieving user details', error);
+        // Handle error...
+      }
+    );
   }
 }

@@ -41,15 +41,21 @@ public class AuthentificationImp implements AuthentificationService{
     }
 
     public AuthenticationResponse login(String email, String password) {
+        System.out.println("1");
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
+        System.out.println("2");
         var user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
+        System.out.println("3");
         var jwt = jwtServices.generateToken(user);
+        System.out.println("3");
         var refreshToken = jwtServices.generateRefreshToken(new HashMap<>(), user);
+        System.out.println("4");
 
         AuthenticationResponse authenticationResponse = new AuthenticationResponse();
 
         authenticationResponse.setAccessToken(jwt);
         authenticationResponse.setRefreshToken(refreshToken);
+
         authenticationResponse.setRole(user.getRole().toString());
         return authenticationResponse;
     }
