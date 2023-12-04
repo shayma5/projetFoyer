@@ -43,8 +43,8 @@ export class UserListComponent implements OnInit {
     this.adminForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
+      nom: ['', Validators.required],
+      prenom: ['', Validators.required],
     });
 
     console.log('Admin Form:', this.adminForm);

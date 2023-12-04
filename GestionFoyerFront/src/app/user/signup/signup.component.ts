@@ -12,17 +12,17 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class SignupComponent implements OnInit {
   signUpForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.signUpForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required],
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      dob: ['', this.dateOfBirthValidator],
-      university: ['', Validators.required],
+      nom: ['', Validators.required],
+      prenom: ['', Validators.required],
+      dateNaissance: ['', this.dateOfBirthValidator],
+      ecole: ['', Validators.required],
       cin: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern(/^\d+$/)]],
     }, {
       validator: this.passwordsMatchValidator('password', 'confirmPassword')
@@ -62,6 +62,10 @@ export class SignupComponent implements OnInit {
         .subscribe(
           (response) => {
             console.log('User created successfully:', response);
+
+            this.router.navigate(['/front/home']);
+            console.log('Stored User:', response);
+            localStorage.setItem('user', JSON.stringify(response));
           },
           (error) => {
             console.error('Error creating user:', error);

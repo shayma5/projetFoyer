@@ -79,8 +79,8 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2">Name</label>
                         <input
                             class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                            type="text" formControlName="name" />
-                        <div *ngIf="signUpForm.get('name')!.hasError('required') && signUpForm.get('name')!.touched"
+                            type="text" formControlName="nom" />
+                        <div *ngIf="signUpForm.get('nom')!.hasError('required') && signUpForm.get('nom')!.touched"
                             class="text-red-500">
                             Name is required.
                         </div>
@@ -89,8 +89,8 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2">Last Name</label>
                         <input
                             class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                            type="text" formControlName="lastName" />
-                        <div *ngIf="signUpForm.get('lastName')!.hasError('required') && signUpForm.get('lastName')!.touched"
+                            type="text" formControlName="prenom" />
+                        <div *ngIf="signUpForm.get('prenom')!.hasError('required') && signUpForm.get('prenom')!.touched"
                             class="text-red-500">
                             Last Name is required.
                         </div>
@@ -135,8 +135,8 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
                         <input
                             class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                            type="date" formControlName="dob" />
-                        <div *ngIf="signUpForm.get('dob')!.hasError('dateInvalid') && signUpForm.get('dob')!.touched"
+                            type="date" formControlName="dateNaissance" />
+                        <div *ngIf="signUpForm.get('dateNaissance')!.hasError('dateInvalid') && signUpForm.get('dateNaissance')!.touched"
                             class="text-red-500">
                             Invalid date of birth.
                         </div>
@@ -145,8 +145,8 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2">University</label>
                         <input
                             class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                            type="text" formControlName="university" />
-                        <div *ngIf="signUpForm.get('university')!.hasError('required') && signUpForm.get('university')!.touched"
+                            type="text" formControlName="ecole" />
+                        <div *ngIf="signUpForm.get('ecole')!.hasError('required') && signUpForm.get('ecole')!.touched"
                             class="text-red-500">
                             University is required.
                         </div>

@@ -95,8 +95,8 @@
                         <td class="py-2 px-6 border-b border-gray-200">
                             <input
                                 class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-2 block w-40 appearance-none"
-                                type="text" formControlName="name" />
-                            <div *ngIf="adminForm.get('name')!.hasError('required') && adminForm.get('name')!.touched"
+                                type="text" formControlName="nom" />
+                            <div *ngIf="adminForm.get('nom')!.hasError('required') && adminForm.get('nom')!.touched"
                                 class="text-red-500">
                                 Name is required.
                             </div>
@@ -104,8 +104,8 @@
                         <td class="py-2 px-6 border-b border-gray-200">
                             <input
                                 class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-2 block w-40 appearance-none"
-                                type="text" formControlName="lastName" />
-                            <div *ngIf="adminForm.get('lastName')!.hasError('required') && adminForm.get('lastName')!.touched"
+                                type="text" formControlName="prenom" />
+                            <div *ngIf="adminForm.get('prenom')!.hasError('prenom') && adminForm.get('prenom')!.touched"
                                 class="text-red-500">
                                 Last Name is required.
                             </div>

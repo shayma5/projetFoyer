@@ -9,28 +9,20 @@ import { User } from 'src/app/user/user';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  user: User | null = null;
+  user!: User;
   constructor(private authService: AuthServiceService, private router: Router) { }
 
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['/front/home']);
   }
 
   ngOnInit() {
-    this.getUserInfo();
+    const userString = localStorage.getItem('user');
+
+    if (userString) {
+      this.user = JSON.parse(userString);
+      console.log('Retrieved User:', this.user);
+    }
   }
 
-  private getUserInfo() {
-    this.authService.getUserDetails().subscribe(
-      (user) => {
-        this.user = user;
-        console.log('Retrieved User:', this.user);
-      },
-      (error) => {
-        console.error('Error retrieving user details', error);
-        // Handle error...
-      }
-    );
-  }
 }

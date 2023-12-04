@@ -9,7 +9,7 @@ import { SlideComponent } from './slide/slide.component';
 import { FooterComponent } from './footer/footer.component';
 import { BackOfficeRoutingModule } from '../back-office/back-office-routing.module';
 import { ReservationComponent } from './reservation/reservation.component';
-
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { ReservationComponent } from './reservation/reservation.component';
     CommonModule,
     FrontOfficeRoutingModule,
     BackOfficeRoutingModule,
-    UniversityModule
+    UniversityModule,
+    MatMenuModule
   ]
 })
 export class FrontOfficeModule { }

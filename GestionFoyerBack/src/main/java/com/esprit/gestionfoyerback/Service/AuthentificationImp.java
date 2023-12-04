@@ -40,16 +40,11 @@ public class AuthentificationImp implements AuthentificationService{
         return etudiantRepository.save(etudiant);
     }
 
-    public AuthenticationResponse login(String email, String password) {
-        System.out.println("1");
+   /* public AuthenticationResponse login(String email, String password) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
-        System.out.println("2");
         var user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
-        System.out.println("3");
         var jwt = jwtServices.generateToken(user);
-        System.out.println("3");
         var refreshToken = jwtServices.generateRefreshToken(new HashMap<>(), user);
-        System.out.println("4");
 
         AuthenticationResponse authenticationResponse = new AuthenticationResponse();
 
@@ -58,7 +53,53 @@ public class AuthentificationImp implements AuthentificationService{
 
         authenticationResponse.setRole(user.getRole().toString());
         return authenticationResponse;
+    }*/
+
+    public AuthenticationResponse login(String email, String password) {
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
+        var user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
+        var jwt = jwtServices.generateToken(user);
+        var refreshToken = jwtServices.generateRefreshToken(new HashMap<>(), user);
+
+        AuthenticationResponse authenticationResponse;
+
+        if (user instanceof Etudiant) {
+            authenticationResponse = createStudentAuthenticationResponse((Etudiant) user, jwt, refreshToken);
+        } else {
+            authenticationResponse = createRegularUserAuthenticationResponse(user, jwt, refreshToken);
+        }
+
+        return authenticationResponse;
     }
+
+    private AuthenticationResponse createStudentAuthenticationResponse(Etudiant etudiant, String jwt, String refreshToken) {
+        AuthenticationResponse authenticationResponse = new AuthenticationResponse();
+        // Set student-specific fields
+        authenticationResponse.setCin(etudiant.getCin());
+        authenticationResponse.setEcole(etudiant.getEcole());
+        authenticationResponse.setDateNaissance(etudiant.getDateNaissance());
+        authenticationResponse.setReservations(etudiant.getReservations());
+        // Set common fields
+        setCommonAuthenticationResponseFields(authenticationResponse, jwt, refreshToken, etudiant);
+        return authenticationResponse;
+    }
+
+    private AuthenticationResponse createRegularUserAuthenticationResponse(User user, String jwt, String refreshToken) {
+        AuthenticationResponse authenticationResponse = new AuthenticationResponse();
+        // Set common fields
+        setCommonAuthenticationResponseFields(authenticationResponse, jwt, refreshToken, user);
+        return authenticationResponse;
+    }
+
+    private void setCommonAuthenticationResponseFields(AuthenticationResponse authenticationResponse, String jwt, String refreshToken, User user) {
+        authenticationResponse.setAccessToken(jwt);
+        authenticationResponse.setRefreshToken(refreshToken);
+        authenticationResponse.setNom(user.getNom());
+        authenticationResponse.setPrenom(user.getPrenom());
+        authenticationResponse.setEmail(user.getEmail());
+        authenticationResponse.setRole(user.getRole().toString());
+    }
+
 
     public AuthenticationResponse refreshToken(RefreshTokenRequest refreshToken) {
         String userEmail = jwtServices.extractUsername(refreshToken.getRefreshToken());
