@@ -4,14 +4,15 @@ import { UserComponent } from './user.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from '../authentification/auth.guard';
+import { LocalstorageGuard } from '../authentification/localstorage.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: UserComponent,
     children: [
-      { path: "signup", component: SignupComponent },
-      { path: "login", component: LoginComponent }
+      { path: "signup", canActivate: [LocalstorageGuard], component: SignupComponent },
+      { path: "login", canActivate: [LocalstorageGuard], component: LoginComponent }
     ]
   }];
 

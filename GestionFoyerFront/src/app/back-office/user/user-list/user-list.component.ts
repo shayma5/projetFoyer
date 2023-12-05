@@ -20,6 +20,8 @@ export class UserListComponent implements OnInit {
   showAddColumnButton: boolean = false;
   isRowDisabled: boolean = false;
   adminForm!: FormGroup;
+  showUpdateForm = false;
+  selectedAdmin: any | null = null;
 
   constructor(private fb: FormBuilder,
     private router: Router,

@@ -35,4 +35,9 @@ public class AuthenticationController {
     public AuthenticationResponse refreshToken(@RequestBody RefreshTokenRequest refreshToken) {
         return authenticationServices.refreshToken(refreshToken);
     }
+
+    @PutMapping("/update")
+    public Etudiant updateUser(@RequestBody Etudiant etudiant) {
+        return authenticationServices.updateUser(etudiant);
+    }
 }

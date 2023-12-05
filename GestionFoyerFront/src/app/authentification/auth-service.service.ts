@@ -25,18 +25,6 @@ export class AuthServiceService {
     this.router.navigate(['/front/home']);
   }
 
-  /*getUser(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/user`);
-  }
-
-  getUserDetails(): Observable<User> {
-    const apiUrl = 'http://localhost:9090/auth/user';
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.getAccessToken()}`,
-    });
-    return this.http.get<User>(apiUrl, { headers });
-  }*/
-
   isLoggedIn(): boolean {
     const userString = localStorage.getItem('user');
     return !!userString;

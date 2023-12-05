@@ -9,4 +9,5 @@ public interface AuthentificationService {
     Etudiant registerAdmin(Etudiant etudiant);
     AuthenticationResponse login(String email, String password);
     AuthenticationResponse refreshToken(RefreshTokenRequest refreshToken);
+    Etudiant updateUser(Etudiant etudiant);
 }

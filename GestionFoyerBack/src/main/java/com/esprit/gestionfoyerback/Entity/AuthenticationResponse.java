@@ -18,6 +18,7 @@ public class AuthenticationResponse {
     String accessToken;
     String refreshToken;
 
+    long id;
     String nom;
     String prenom;
     String email;

@@ -71,20 +71,18 @@
                         <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
                         <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">LastName</th>
                         <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
-                        <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Password</th>
                         <th class="py-4 px-6 text-left text-gray-600 font-bold uppercase">Action</th>
                     </tr>
                 </thead>
 
                 <tbody class="bg-white">
                     <tr *ngFor="let admin of admins">
-                        <td class="py-2 px-6 border-b border-gray-200">{{ admin.id }}</td>
-                        <td class="py-2 px-6 border-b border-gray-200">{{ admin.nom }}</td>
-                        <td class="py-2 px-6 border-b border-gray-200">{{ admin.prenom }}</td>
+                        <td class="py-2 px-6 border-b border-gray-200">{{admin.id }}</td>
+                        <td class="py-2 px-6 border-b border-gray-200">{{admin.nom }}</td>
+                        <td class="py-2 px-6 border-b border-gray-200">{{admin.prenom }}</td>
                         <td class="py-2 px-6 border-b border-gray-200 truncate">{{ admin.email }}</td>
-                        <td class="py-2 px-6 border-b border-gray-200">{{ admin.password }}</td>
+
                         <td class="py-2 px-6 border-b border-gray-200">
-                            <button class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">update</button>
                             <button (click)="onDeleteUser(admin.id)"
                                 class="bg-red-500 text-white py-1 px-2 rounded-full text-xs ml-1">delete</button>
                         </td>
@@ -184,7 +182,6 @@
                     <td class="py-2 px-6 border-b border-gray-200">{{ student.password.slice(0, -40) }}...</td>
                     <td class="py-2 px-6 border-b border-gray-200">{{ student.dateNaissance | date: 'yyyy-MM-dd' }}</td>
                     <td class="py-2 px-6 border-b border-gray-200">
-                        <button class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">update</button>
                         <button (click)="onDeleteUser(student.id)"
                             class="bg-red-500 text-white py-1 px-2 rounded-full text-xs ml-1">delete</button>
                     </td>

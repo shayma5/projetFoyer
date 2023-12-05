@@ -10,6 +10,10 @@ import { FooterComponent } from './footer/footer.component';
 import { BackOfficeRoutingModule } from '../back-office/back-office-routing.module';
 import { ReservationComponent } from './reservation/reservation.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { AccountComponent } from './account/account.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -17,13 +21,17 @@ import { MatMenuModule } from '@angular/material/menu';
     HeaderComponent,
     SlideComponent,
     FooterComponent,
-    ReservationComponent  ],
+    ReservationComponent,
+    AccountComponent
+  ],
   imports: [
     CommonModule,
     FrontOfficeRoutingModule,
     BackOfficeRoutingModule,
     UniversityModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FrontOfficeModule { }

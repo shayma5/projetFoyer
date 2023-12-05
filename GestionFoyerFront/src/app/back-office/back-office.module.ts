@@ -9,6 +9,7 @@ import { NavComponent } from './nav/nav.component';
 import { BlocModule } from './bloc/bloc.module';
 import { UserComponent } from './user/user.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -24,6 +25,7 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     BackOfficeRoutingModule,
     BlocModule,
+    FormsModule
   ]
 })
 export class BackOfficeModule { }

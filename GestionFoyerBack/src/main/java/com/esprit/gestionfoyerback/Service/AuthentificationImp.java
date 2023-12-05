@@ -94,6 +94,7 @@ public class AuthentificationImp implements AuthentificationService{
     private void setCommonAuthenticationResponseFields(AuthenticationResponse authenticationResponse, String jwt, String refreshToken, User user) {
         authenticationResponse.setAccessToken(jwt);
         authenticationResponse.setRefreshToken(refreshToken);
+        authenticationResponse.setId(user.getId());
         authenticationResponse.setNom(user.getNom());
         authenticationResponse.setPrenom(user.getPrenom());
         authenticationResponse.setEmail(user.getEmail());
@@ -114,5 +115,10 @@ public class AuthentificationImp implements AuthentificationService{
             return authenticationResponse;
         }
         return null;
+    }
+
+    @Override
+    public Etudiant updateUser(Etudiant etudiant) {
+        return userRepository.save(etudiant);
     }
 }
