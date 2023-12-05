@@ -22,13 +22,14 @@ export class EditBlocComponent {
     this.fetchFoyerNames();
     this.es.getBloc(this.idBloc).subscribe((data)=>{
       this.bloc=data
+      console.log(this.bloc.nomFoyer);
       this.updateForm=new FormGroup({
         idBloc:new FormControl(this.bloc.idBloc),
         nomFoyer:new FormControl(this.bloc.nomFoyer),
         nomBloc:new FormControl(this.bloc.nomBloc),
         capaciteBloc:new FormControl(this.bloc.capaciteBloc)
       });
-      console.log(this.bloc);
+      
     });
   }
 

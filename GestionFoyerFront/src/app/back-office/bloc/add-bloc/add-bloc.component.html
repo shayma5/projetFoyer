@@ -14,9 +14,10 @@
           required
           id="nomFoyer"
           name="nomFoyer"
-          [(ngModel)]="selectedFoyer"
+          ngModel
           class="text-black rounded-lg block w-full p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-           <option *ngFor="let nomFoyer of foyerNames" [value]="nomFoyer">{{ nomFoyer }}</option>
+           <option  value="" disabled>selectionner un foyer</option>
+           <option *ngFor="let nomFoyer of foyerNames" >{{ nomFoyer }}</option>
         </select>
         <small class="text text-danger" *ngIf="inputname?.errors?.['required'] && inputname.touched">Foyer is required</small>
   

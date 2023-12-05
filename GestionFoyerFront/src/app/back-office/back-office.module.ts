@@ -16,10 +16,10 @@ import { BlocModule } from './bloc/bloc.module';
 
 
     BackOfficeComponent,
-            HomeBackComponent,
-            SidebarComponent,
-            NavComponent,
-         ],
+    HomeBackComponent,
+    SidebarComponent,
+    NavComponent,
+  ],
   imports: [
     CommonModule,
     BackOfficeRoutingModule,

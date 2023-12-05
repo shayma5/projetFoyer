@@ -32,7 +32,7 @@ export class AddBlocComponent {
           // Consider a status code of 200 as success and navigate
           this.router.navigate(['back/bloc/bloclist']);
         } else {
-          console.error('Error adding Etudiant:', error);
+          console.error('Error adding Bloc:', error);
           // Handle the error as needed, e.g., display an error message to the user
         }
       }

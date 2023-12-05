@@ -9,6 +9,7 @@ import { BackOfficeModule } from './back-office/back-office.module';
 import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     BackOfficeModule,
-    UserModule
+    UserModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
