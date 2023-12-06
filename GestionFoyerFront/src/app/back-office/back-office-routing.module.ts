@@ -11,6 +11,8 @@ const routes: Routes = [
         import('./bloc/bloc.module').then(m=>m.BlocModule)},
       {path:"univesite",loadChildren:()=>
         import('./univesite/univesite.module').then(m=>m.UnivesiteModule)},
+        {path:"foyer",loadChildren:()=>
+        import('./foyer/foyer.module').then(m=>m.FoyerModule)},  
       {path:"reservation",loadChildren:()=>
         import('./reservation/reservation.module').then(m=>m.ReservationModule)},
       {path:"dashboard", component:HomeBackComponent}
