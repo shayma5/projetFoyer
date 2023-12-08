@@ -8,6 +8,7 @@ import { FrontOfficeModule } from './front-office/front-office.module';
 import { BackOfficeModule } from './back-office/back-office.module';
 import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     FrontOfficeModule,
     BackOfficeModule,
     UserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

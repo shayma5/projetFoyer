@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReservationsListComponent } from './reservations-list/reservations-list.component';
 import { ReservationsRoutingModule } from './reservations-routing.module';
 import { AddReservationComponent } from './add-reservation/add-reservation.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,6 +15,7 @@ import { AddReservationComponent } from './add-reservation/add-reservation.compo
   imports: [
     CommonModule,
     ReservationsRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ReservationsModule { }
