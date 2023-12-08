@@ -1,0 +1,37 @@
+<div class="room-reservation-section mt-150 mb-150">
+  <div class="container">
+    <div class="flex justify-center items-center py-20">
+      <div class="reservation-table">
+        <div class="reservation-item bg-white px-8 pt-6 pb-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
+          <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+            <div class="flex items-start">
+              <!-- Other HTML code... -->
+
+              <div class="w-full">
+                <div class="mb-4">
+                  <label for="universityName" class="text-gray-600">University Name:</label>
+                  <input type="text" id="universityName" formControlName="universityName" placeholder="Enter university name" class="border border-gray-300 rounded px-3 py-2 w-full">
+                </div>
+
+                <div class="mb-4">
+                  <label for="foyerName" class="text-gray-600">Foyer Name:</label>
+                  <input type="text" id="foyerName" formControlName="foyerName" placeholder="Enter foyer name" class="border border-gray-300 rounded px-3 py-2 w-full">
+                </div>
+
+                <div class="mb-4">
+                  <label for="schoolYear" class="text-gray-600">School Year:</label>
+                  <select id="schoolYear" formControlName="schoolYear" class="border border-gray-300 rounded px-3 py-2 w-full">
+                    <option value="2023-2024">2023-2024</option>
+                    <option value="2024-2025">2024-2025</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="mt-4 text-xl w-full text-white bg-orange-600 py-2 rounded-xl shadow-lg">Check Reservation</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

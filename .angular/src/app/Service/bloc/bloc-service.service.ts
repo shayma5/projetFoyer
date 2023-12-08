@@ -34,4 +34,7 @@ export class BlocService {
     return this.httpClient.get<string[]>('http://localhost:9090/bloc/foyernames');
   }
 
+  getBlocksByFoyer(id: any): Observable<string[]> {
+    return this.httpClient.get<string[]>('http://localhost:9090/bloc/foyer/' + id);
+  }
 }

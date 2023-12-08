@@ -51,9 +51,9 @@
 		<div class="burger"></div>
 		<nav>
 			<a routerLink="/front/home">Home</a>
-			<a href="#">About Us</a>
+			<a >About Us</a>
 			<a routerLink="universities">Universities</a>
-			<a href="#">Get Involved</a>
+			<a routerLink="reservations/reservationlist">My Reservations</a>
 			<a></a>
 			<ng-container *ngIf="isLoggedIn(); else showButtons">
 				<a routerLink="/front/account" style="width: 100px;">{{ user.nom }} {{ user.prenom }}</a>

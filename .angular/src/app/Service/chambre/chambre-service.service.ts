@@ -33,4 +33,8 @@ export class ChambreServiceService {
   getChambre(id: any) {
     return this.httpClient.get('http://localhost:9090/chambre/getId/' + id);
   }
+
+  getChambrewithbloc(id: any) {
+    return this.httpClient.get('http://localhost:9090/chambre/bloc/' + id);
+  }
 }
