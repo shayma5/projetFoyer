@@ -12,6 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { UnivesiteModule } from './univesite/univesite.module';
 import { FoyerModule } from './foyer/foyer.module';
+import { ChambreModule } from './chambre/chambre.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FoyerModule } from './foyer/foyer.module';
     BlocModule,
     FormsModule,
     FoyerModule,
-    UnivesiteModule
+    UnivesiteModule,
+    ChambreModule
   ]
 })
 export class BackOfficeModule { }
