@@ -1,0 +1,46 @@
+
+<div class="flex justify-center items-center h-screen">
+  <form class="max-w-md mx-auto bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md flex justify-center items-center " #addForm="ngForm" (ngSubmit)="add(addForm)" >
+
+    <div class="grid md:grid-cols-1 md:gap-3" style="max-width: 50%;">
+
+          <div class="relative z-0 w-full mb-5 group">
+            <h2 style="font-family: 'Courier New', Courier, monospace;">Ajouter une Université </h2>
+          </div>
+
+      <div class="relative z-0 w-full mb-5 group">
+        <input  ngModel required minlength="3" #inputname="ngModel" pattern="[a-zA-Z]*" type="text" name="nom" ngModel id="nom"class=" block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label style="text-decoration-color: black;" for="floating_first_name" class="peer-focus:font-medium absolute text-sm  text-black font-medium dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"> Nom d'université </label>
+        <small class="text text-danger" *ngIf="inputname?.errors?.['required'] && inputname.touched">Name is required</small>
+        <small class="text text-danger" *ngIf="inputname?.errors?.['minlength'] && inputname.touched">min length est 3</small>
+        <small class="text text-danger" *ngIf="inputname?.errors?.['pattern'] && inputname.touched">name should be letters only</small>
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+            ngModel
+            required
+            pattern="[a-zA-Z]*"
+            type="text"
+            name="adresse"
+            #capacite="ngModel"
+            id="adresse"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder=" "
+        />
+        <label
+            for="floating_last_name"
+            class="peer-focus:font-medium absolute text-sm text-black font-medium dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            Adresse
+        </label>
+
+          <small class="text text-danger" *ngIf="capacite?.errors?.['required'] && capacite.touched">Capacite is required</small>
+          <small class="text text-danger" *ngIf="capacite?.errors?.['pattern'] && capacite.touched">Capacite should be number only</small>
+        </div>
+       
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ajouter</button>
+
+    </div>
+
+  </form>
+
+  </div>
