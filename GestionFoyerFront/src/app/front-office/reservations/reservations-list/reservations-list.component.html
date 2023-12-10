@@ -1,0 +1,40 @@
+<br>
+<div>
+  <!-- Reservation section -->
+  <div class="reservation-section mt-150 mb-150">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="section-title">
+            <h3><span class="orange-text">My</span> Reservations</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center items-center py-20">
+        <div class="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
+          <ng-container *ngIf="reservations.length > 0; else noReservations"></ng-container>
+            <div *ngFor="let reservation of reservations" class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500 current-reservation">
+            <h3 class="mb-3 text-xl font-bold">Room Reservation</h3>
+            <div class="relative">
+              <img class="w-full rounded-xl" src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Colors" />
+              
+            </div>
+            <h1 class="mt-4 text-gray-800 text-2xl font-bold cursor-pointer">ID: {{ reservation.idReservation }}</h1>
+            <p class="text-gray-500">University: ESPRIT</p>
+            <p class="text-gray-500">Foyer: 1</p>
+            <p class="text-gray-500">Date: {{ reservation.anneUniversitere }}</p>
+            <div class="my-4">
+              <button class="mt-4 text-xl w-full text-white bg-orange-600 py-2 rounded-xl shadow-lg">Annuler Reservation</button>
+            </div>
+          </div>
+        </div>
+      
+      <ng-template #noReservations>
+        <p class="text-center text-gray-500">No reservations yet.</p>
+      </ng-template>
+    </div>
+      </div>
+      
+
+</div>
