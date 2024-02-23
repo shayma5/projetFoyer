@@ -34,8 +34,10 @@ The University Chamber Reservation System is built using the following technolog
 To get started with the University Chamber Reservation System, follow these steps:
 
 1. **Clone the Repository**: Clone this repository to your local machine using the following command:
-git clone <repository-url>
 
+  ```
+  git clone https://github.com/shayma5/projetFoyer.git
+  ```
 
 2. **Backend Setup**: Navigate to the backend directory and follow the instructions in the README file to set up and run the Spring Boot application.
 
